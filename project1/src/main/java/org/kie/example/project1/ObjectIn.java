@@ -9,8 +9,39 @@ public class ObjectIn implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
+   @org.kie.api.definition.type.Label(value = "Campo Uno")
+   private java.lang.String campoUno;
+   @org.kie.api.definition.type.Label(value = "Campo Dos")
+   private java.lang.Integer campoDos;
+
    public ObjectIn()
    {
+   }
+
+   public java.lang.String getCampoUno()
+   {
+      return this.campoUno;
+   }
+
+   public void setCampoUno(java.lang.String campoUno)
+   {
+      this.campoUno = campoUno;
+   }
+
+   public java.lang.Integer getCampoDos()
+   {
+      return this.campoDos;
+   }
+
+   public void setCampoDos(java.lang.Integer campoDos)
+   {
+      this.campoDos = campoDos;
+   }
+
+   public ObjectIn(java.lang.String campoUno, java.lang.Integer campoDos)
+   {
+      this.campoUno = campoUno;
+      this.campoDos = campoDos;
    }
 
 }
