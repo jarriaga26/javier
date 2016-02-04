@@ -1,2 +1,11 @@
 package org.kie.example.project1;
 
+
+rule "Row 1 TableTest"
+	dialect "mvel"
+	when
+		f1 : ObjectIn( campoDos == 4 , campoUno == "succes" )
+	then
+	    System.out.println("testst");
+		f1.setCampoDos( 100 );
+end
