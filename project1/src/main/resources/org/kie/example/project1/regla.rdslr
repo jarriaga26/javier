@@ -1,9 +1,0 @@
-package org.kie.example.project1;
-
-import java.lang.Number;
-
-rule "regla"
-	dialect "mvel"
-	when
-	then
-end
