@@ -1,7 +1,7 @@
 package org.kie.example.project1;
 
 
-rule "Row 1 TableTest"
+rule "regla1"
 	dialect "mvel"
 	when
 		f1 : ObjectIn( campoDos == 4 , campoUno == "succes" )
