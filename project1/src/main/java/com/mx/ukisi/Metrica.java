@@ -9,10 +9,13 @@ public class Metrica implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "nombre")
+   @org.kie.api.definition.type.Label("nombre")
    private java.lang.String nombre;
-   @org.kie.api.definition.type.Label(value = "valor")
+   @org.kie.api.definition.type.Label("valor")
    private java.lang.Integer valor;
+
+   @org.kie.api.definition.type.Label(value = "crea incidencia")
+   private boolean levantaInicidencia;
 
    public Metrica()
    {
@@ -38,10 +41,22 @@ public class Metrica implements java.io.Serializable
       this.valor = valor;
    }
 
-   public Metrica(java.lang.String nombre, java.lang.Integer valor)
+   public boolean isLevantaInicidencia()
+   {
+      return this.levantaInicidencia;
+   }
+
+   public void setLevantaInicidencia(boolean levantaInicidencia)
+   {
+      this.levantaInicidencia = levantaInicidencia;
+   }
+
+   public Metrica(java.lang.String nombre, java.lang.Integer valor,
+         boolean levantaInicidencia)
    {
       this.nombre = nombre;
       this.valor = valor;
+      this.levantaInicidencia = levantaInicidencia;
    }
 
 }
