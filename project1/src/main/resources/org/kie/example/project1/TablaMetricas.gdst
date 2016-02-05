@@ -24,17 +24,16 @@
           </typedDefaultValue>
           <hideColumn>false</hideColumn>
           <width>-1</width>
-          <header>Metrica nombr</header>
+          <header>Metrica nombre</header>
           <constraintValueType>1</constraintValueType>
-          <factField>valor</factField>
-          <fieldType>Integer</fieldType>
+          <factField>nombre</factField>
+          <fieldType>String</fieldType>
           <operator>==</operator>
-          <valueList>CPU,Memory Ram</valueList>
           <parameters/>
         </condition-column52>
         <condition-column52>
           <typedDefaultValue>
-            <valueString></valueString>
+            <valueString>80</valueString>
             <dataType>STRING</dataType>
             <isOtherwise>false</isOtherwise>
           </typedDefaultValue>
@@ -42,14 +41,15 @@
           <width>-1</width>
           <header>Valor</header>
           <constraintValueType>1</constraintValueType>
-          <factField>nombre</factField>
-          <fieldType>String</fieldType>
+          <factField>valor</factField>
+          <fieldType>Integer</fieldType>
           <operator>&gt;</operator>
-          <valueList>80</valueList>
+          <valueList>70,80,90</valueList>
           <parameters/>
         </condition-column52>
       </conditions>
       <window>
+        <operator></operator>
         <parameters/>
       </window>
     </Pattern52>
@@ -110,29 +110,9 @@
   <data>
     <list>
       <value>
-        <valueNumeric>1</valueNumeric>
+        <valueNumeric class="int">1</valueNumeric>
         <valueString></valueString>
-        <dataType>NUMERIC_BIGDECIMAL</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueString></valueString>
-        <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueString>CPU</valueString>
-        <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value reference="../../../conditionPatterns/Pattern52/conditions/condition-column52[2]/typedDefaultValue"/>
-      <value reference="../../../actionCols/set-field-col52/typedDefaultValue"/>
-    </list>
-    <list>
-      <value>
-        <valueNumeric>2</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_BIGDECIMAL</dataType>
+        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
@@ -145,8 +125,44 @@
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
-      <value reference="../../../conditionPatterns/Pattern52/conditions/condition-column52[2]/typedDefaultValue"/>
-      <value reference="../../../actionCols/set-field-col52/typedDefaultValue"/>
+      <value>
+        <valueString></valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString>true</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+    </list>
+    <list>
+      <value>
+        <valueNumeric class="int">2</valueNumeric>
+        <valueString></valueString>
+        <dataType>NUMERIC_INTEGER</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString></valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString>CPU</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString></valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString>true</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
     </list>
   </data>
 </decision-table52>
