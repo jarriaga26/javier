@@ -7,4 +7,5 @@ rule "GamesaTestUno"
 	when
 		Dispositivo( padre == false )
 	then
+		System.out.println("si evalua")
 end
