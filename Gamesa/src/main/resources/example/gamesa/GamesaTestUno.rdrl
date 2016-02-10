@@ -1,0 +1,9 @@
+package example.gamesa;
+
+import java.lang.Number;
+
+rule "GamesaTestUno"
+	dialect "mvel"
+	when
+	then
+end
