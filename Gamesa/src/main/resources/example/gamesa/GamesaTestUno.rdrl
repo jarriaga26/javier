@@ -3,7 +3,8 @@ package example.gamesa;
 import java.lang.Number;
 
 rule "GamesaTestUno"
-	dialect "mvel"
+	dialect "java"
 	when
+		Dispositivo( padre == false )
 	then
 end
