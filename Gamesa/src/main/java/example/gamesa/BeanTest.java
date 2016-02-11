@@ -9,10 +9,13 @@ public class BeanTest implements java.io.Serializable {
     static final long serialVersionUID = 1L;
 
     public BeanTest() {
-        System.out.println("from bean test");
+        
         
     }
     
+    public void metodo(){
+        System.out.println("from bean test 1.0.0");
+    }
     
 
      
