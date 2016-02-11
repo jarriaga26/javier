@@ -4,8 +4,8 @@ rule "gamesaConTiempo"
 	
 	when
 		Dispositivo( padre : padre == false )
-		getObjetcs();
+		
 	then
-	    
-		System.out.println("si evalua 4.time ");
+	    BeanTest $bean= new BeanTest();
+		System.out.println("si evalua 4.time: "+$bean.metodo());
 end
