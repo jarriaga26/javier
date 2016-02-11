@@ -5,5 +5,5 @@ rule "gamesaConTiempo"
 	when
 		Dispositivo( padre : padre == false )
 	then
-		System.out.println("si evalua 3 ");
+		System.out.println("si evalua 3.time ");
 end
