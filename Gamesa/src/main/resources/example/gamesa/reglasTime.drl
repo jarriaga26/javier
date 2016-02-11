@@ -1,6 +1,6 @@
 package example.gamesa;
 
-rule "GamesaTestUno"
+rule "gamesaConTiempo"
 	duration(10 s)
 	when
 		Dispositivo( padre : padre == false )
