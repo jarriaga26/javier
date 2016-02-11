@@ -7,5 +7,5 @@ rule "gamesaConTiempo"
 		
 	then
 	    BeanTest $bean= new BeanTest();
-		System.out.println("si evalua 4.time: "+$bean.metodo());
+		System.out.println("si evalua 4.1: "+$bean.metodo());
 end
