@@ -5,7 +5,7 @@ import java.lang.Number;
 rule "GamesaTestUno"
 	dialect "java"
 	when
-		Dispositivo( padre == false )
+		Dispositivo( padre : padre == false )
 	then
-		System.out.println("si evalua");
+		System.out.println("si evalua 2 ");
 end
