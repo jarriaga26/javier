@@ -1,2 +1,9 @@
 package example.gamesa;
 
+rule "GamesaTestUno"
+	duration(10 s)
+	when
+		Dispositivo( padre : padre == false )
+	then
+		System.out.println("si evalua 3 ");
+end
