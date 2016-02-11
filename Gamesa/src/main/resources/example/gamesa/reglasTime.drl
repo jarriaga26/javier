@@ -1,9 +1,9 @@
 package example.gamesa;
 
 rule "gamesaConTiempo"
-	
+	duration(10s)
 	when
 		Dispositivo( padre : padre == false )
 	then
-		System.out.println("si evalua 3.time ");
+		System.out.println("si evalua 4.time ");
 end
