@@ -4,7 +4,7 @@ import java.util.Collection;
 
 function void yourFunction(Collection colecion) {
 
-	System.out.println("dd"+$list);
+	System.out.println("dd"+colecion);
 }
 
 rule "gamesaConTiempo"
