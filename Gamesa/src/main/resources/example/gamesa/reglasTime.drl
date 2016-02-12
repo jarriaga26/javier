@@ -3,8 +3,14 @@ package example.gamesa;
 import java.util.Collection;
 
 function void yourFunction(Collection colecion) {
-
-	System.out.println("dd"+colecion);
+	System.out.println("con funcion"+colecion);
+	
+	for(Object obj:colecion){
+	    Dispositivo dis=(Dispositivo)obj;
+	    System.out.println("from for: "+dis.getId());
+	}
+	
+	
 }
 
 rule "gamesaConTiempo"
