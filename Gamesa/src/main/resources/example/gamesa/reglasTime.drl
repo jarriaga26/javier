@@ -11,6 +11,6 @@ rule "gamesaConTiempo"
 	    BeanTest $bean= new BeanTest();
 	    $bean.metodo();
 		System.out.println("si evalua 4.1:");
-		$list=kcontext.getKieRuntime().getObjects();
+		Dispo $list = kcontext.getKieRuntime().getObjects();
 		
 end
