@@ -10,7 +10,7 @@ rule "gamesaConTiempo"
 	then
 	    BeanTest $bean= new BeanTest();
 	    $bean.metodo();
-		System.out.println("si evalua 4.1:");
-		Dispositivo $list = kcontext.getKieRuntime().getObjects();
-		
+		System.out.println("si evalua 4.2:");
+		Object $list = kcontext.getKieRuntime().getObjects();
+		System.out.println("dd"+$list);
 end
