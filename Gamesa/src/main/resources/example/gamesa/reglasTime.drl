@@ -7,8 +7,14 @@ function void yourFunction(Collection colecion) {
 	
 	for(Object obj:colecion){
 	    Dispositivo dis=(Dispositivo)obj;
-	    System.out.println("from for: "+dis.getId());
+	    System.out.println("from for1.1: "+dis.getId());
+	    
+	    if(dis.getId().equals("123456")){
+	        System.out.println("ahuesos ahuesosahuesosahuesosahuesos");
+	    }
 	}
+	
+	
 	
 	
 }
