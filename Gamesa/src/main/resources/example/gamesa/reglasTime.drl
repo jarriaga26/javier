@@ -2,7 +2,7 @@ package example.gamesa;
 
 import java.util.Collection;
 
-function void yourFunction(Collection<Object> colecion) {
+function void yourFunction(Collection colecion) {
 
 	
 }
