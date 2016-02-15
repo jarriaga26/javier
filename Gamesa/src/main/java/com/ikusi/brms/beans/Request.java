@@ -13,7 +13,6 @@ public class Request implements java.io.Serializable
    static final long serialVersionUID = 1L;
 
    @org.kie.api.definition.type.Label(value = "event")
-   @XStreamAsAttribute
    @XStreamAlias("event")
    private com.ikusi.brms.beans.Event event;
    @org.kie.api.definition.type.Label(value = "device")
