@@ -1,2 +1,16 @@
 package com.ikusi.brms.beans;
 
+rule "test envio request"
+ 
+
+when 
+    
+    $request : Request(getEvent().getName() == "Test_0_3")
+    
+then
+
+    System.out.println("objeto:"+$request);
+    $request.getEvent().setColector("ok");
+    update ($request);
+end    
+
