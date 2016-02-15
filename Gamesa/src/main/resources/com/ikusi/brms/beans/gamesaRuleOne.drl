@@ -5,7 +5,7 @@ rule "test envio request"
 
 when 
     
-    $request : Request(getEvent().getName() == "Test_0_3")
+    $request : Request(name == "Test_0_3")
     
 then
 
