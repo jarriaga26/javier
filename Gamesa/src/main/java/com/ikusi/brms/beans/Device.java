@@ -10,18 +10,22 @@ public class Device implements java.io.Serializable
    static final long serialVersionUID = 1L;
 
    @org.kie.api.definition.type.Label(value = "sysId")
+   @XStreamAlias("sys_id")
    private java.lang.String sysId;
    @org.kie.api.definition.type.Label(value = "name")
    private java.lang.String name;
    @org.kie.api.definition.type.Label(value = "ipAddress")
+   @XStreamAlias("ip_address")
    private java.lang.String ipAddress;
    @org.kie.api.definition.type.Label(value = "category")
    private java.lang.String category;
    @org.kie.api.definition.type.Label(value = "subcategory")
    private java.lang.String subcategory;
    @org.kie.api.definition.type.Label(value = "sysClassName")
+    @XStreamAlias("sys_class_name")
    private java.lang.String sysClassName;
    @org.kie.api.definition.type.Label(value = "serialNumber")
+   @XStreamAlias("serial_number")
    private java.lang.String serialNumber;
 
    public Device()
