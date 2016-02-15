@@ -26,7 +26,7 @@ public class Request implements java.io.Serializable
    private java.util.List<com.ikusi.brms.beans.Metric> metrics;
    @org.kie.api.definition.type.Label(value = "parents")
    @XStreamAlias("parents")
-   @XStreamImplicit
+   @XStreamImplicit("parent")
    private java.util.List<com.ikusi.brms.beans.Parent> parents;
 
    public Request()
