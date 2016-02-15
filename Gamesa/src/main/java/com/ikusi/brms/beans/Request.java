@@ -14,7 +14,7 @@ public class Request implements java.io.Serializable
 
    @org.kie.api.definition.type.Label(value = "event")
    @XStreamAsAttribute
-   @XStreamAlias("event",com.ikusi.brms.beans.Event.class)
+   @XStreamAlias("event")
    private com.ikusi.brms.beans.Event event;
    @org.kie.api.definition.type.Label(value = "device")
    private com.ikusi.brms.beans.Device device;
