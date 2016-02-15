@@ -11,7 +11,7 @@ public class Event implements java.io.Serializable
    static final long serialVersionUID = 1L;
 
    @org.kie.api.definition.type.Label(value = "name")
-   @XStreamAsAttribute   
+   @XStreamAlias("name")   
    private java.lang.String name;
    @org.kie.api.definition.type.Label(value = "context")
    private java.lang.String context;
