@@ -12,7 +12,6 @@ public class Metric implements java.io.Serializable
    @org.kie.api.definition.type.Label(value = "name")
    private java.lang.String name;
    @org.kie.api.definition.type.Label(value = "value")
-   @XStreamAlias("name")
    private java.lang.String value;
 
    public Metric()
