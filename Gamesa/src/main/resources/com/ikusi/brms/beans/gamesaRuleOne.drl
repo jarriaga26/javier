@@ -5,12 +5,12 @@ rule "test envio request"
 
 when 
     
-    $request : Request(name == "Test_0_3")
+    $request : Request()
     
 then
 
     System.out.println("objeto:"+$request);
-    $request.getEvent().setColector("ok");
+    
     update ($request);
 end    
 
