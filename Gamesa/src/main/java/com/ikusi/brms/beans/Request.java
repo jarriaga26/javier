@@ -2,6 +2,7 @@ package com.ikusi.brms.beans;
 
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,9 +22,11 @@ public class Request implements java.io.Serializable
    private com.ikusi.brms.beans.Device device;
    @org.kie.api.definition.type.Label(value = "metrics")
    @XStreamAlias("metrics")
+   @XStreamImplicit
    private java.util.List<com.ikusi.brms.beans.Metric> metrics;
    @org.kie.api.definition.type.Label(value = "parents")
    @XStreamAlias("parents")
+   @XStreamImplicit
    private java.util.List<com.ikusi.brms.beans.Parent> parents;
 
    public Request()
