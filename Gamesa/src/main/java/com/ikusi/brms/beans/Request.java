@@ -53,12 +53,12 @@ public class Request implements java.io.Serializable
       this.device = device;
    }
 
-   public java.util.List<com.ikusi.brms.beans.Metric> getMetrics()
+   public com.ikusi.brms.beans.Metrics getMetrics()
    {
       return this.metrics;
    }
 
-   public void setMetrics(java.util.List<com.ikusi.brms.beans.Metric> metrics)
+   public void setMetrics(com.ikusi.brms.beans.Metrics metrics)
    {
       this.metrics = metrics;
    }
@@ -75,7 +75,7 @@ public class Request implements java.io.Serializable
 
    public Request(com.ikusi.brms.beans.Event event,
          com.ikusi.brms.beans.Device device,
-         java.util.List<com.ikusi.brms.beans.Metric> metrics,
+         com.ikusi.brms.beans.Metrics metrics,
          java.util.List<com.ikusi.brms.beans.Parent> parents)
    {
       this.event = event;
