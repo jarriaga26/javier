@@ -23,10 +23,10 @@ public class Request implements java.io.Serializable
    @XStreamAlias("device")
    private com.ikusi.brms.beans.Device device;
    @org.kie.api.definition.type.Label(value = "metrics")
-   @XStreamConverter(value=CollectionConverter.class,useImplicitType=true) 
-   private java.util.List<com.ikusi.brms.beans.Metric> metrics;
+   @XStreamAlias("metrics")
+   private com.ikusi.brms.beans.Metrics metrics;
    @org.kie.api.definition.type.Label(value = "parents")
-  @XStreamConverter(value=CollectionConverter.class,useImplicitType=true) 
+   @XStreamConverter(value=CollectionConverter.class,useImplicitType=true) 
    private java.util.List<com.ikusi.brms.beans.Parent> parents;
 
    public Request()
