@@ -27,7 +27,7 @@ public class Request implements java.io.Serializable
    private com.ikusi.brms.beans.Metrics metrics;
    @org.kie.api.definition.type.Label(value = "parents")
    @XStreamAlias("parents")
-   private java.util.List<com.ikusi.brms.beans.Parent> parents;
+   private com.ikusi.brms.beans.Parents parents;
 
    public Request()
    {
@@ -63,12 +63,12 @@ public class Request implements java.io.Serializable
       this.metrics = metrics;
    }
 
-   public java.util.List<com.ikusi.brms.beans.Parent> getParents()
+   public com.ikusi.brms.beans.Parents getParents()
    {
       return this.parents;
    }
 
-   public void setParents(java.util.List<com.ikusi.brms.beans.Parent> parents)
+   public void setParents(com.ikusi.brms.beans.Parents parents)
    {
       this.parents = parents;
    }
@@ -76,7 +76,7 @@ public class Request implements java.io.Serializable
    public Request(com.ikusi.brms.beans.Event event,
          com.ikusi.brms.beans.Device device,
          com.ikusi.brms.beans.Metrics metrics,
-         java.util.List<com.ikusi.brms.beans.Parent> parents)
+         com.ikusi.brms.beans.Parents parents)
    {
       this.event = event;
       this.device = device;
