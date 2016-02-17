@@ -6,7 +6,7 @@ rule "test envio request"
 when 
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
 then
-    System.out.println("ragla evaluada:"+request.getEvent().getName());
+    System.out.println("ragla evaluada ver 1.0:"+request.getEvent().getName());
     request.getEvent().setName("Succes");
     request.getResponse().setResultado("WAIT");
     request.getResponse().setTiempoEspera(2);
