@@ -7,8 +7,10 @@ when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
 then
     System.out.println("ragla evaluada:"+request.getEvent().getName());
-    request.getEvent().setName("Succes!!!");
-    insert(new Response("OK"));
+    request.getEvent().setName("Succes");
+    request.getResponse().setResultado("WAIT");
+    request.getResponse().setTiempoEspera(2);
+    
     update( request );
     
 end    
