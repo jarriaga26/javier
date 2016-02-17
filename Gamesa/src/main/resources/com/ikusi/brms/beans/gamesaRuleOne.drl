@@ -4,13 +4,8 @@ rule "test envio request"
  
 
 when 
-    
     $request : Request()
-    
 then
-
     System.out.println("objeto:"+$request);
-    
-    update ($request);
 end    
 
