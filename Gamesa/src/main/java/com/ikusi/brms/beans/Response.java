@@ -9,13 +9,15 @@ public class Response implements java.io.Serializable
 
    static final long serialVersionUID = 1L;
 
-   @org.kie.api.definition.type.Label(value = "resultado")
+   @org.kie.api.definition.type.Label("resultado")
    private java.lang.String resultado;
+
+   private java.lang.Integer tiempoEspera;
 
    public Response()
    {
    }
- 
+
    public java.lang.String getResultado()
    {
       return this.resultado;
@@ -26,9 +28,20 @@ public class Response implements java.io.Serializable
       this.resultado = resultado;
    }
 
-   public Response(java.lang.String resultado)
+   public java.lang.Integer getTiempoEspera()
+   {
+      return this.tiempoEspera;
+   }
+
+   public void setTiempoEspera(java.lang.Integer tiempoEspera)
+   {
+      this.tiempoEspera = tiempoEspera;
+   }
+
+   public Response(java.lang.String resultado, java.lang.Integer tiempoEspera)
    {
       this.resultado = resultado;
+      this.tiempoEspera = tiempoEspera;
    }
 
 }
