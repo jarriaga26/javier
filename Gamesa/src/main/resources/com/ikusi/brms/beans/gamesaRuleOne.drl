@@ -8,6 +8,7 @@ when
 then
     System.out.println("ragla evaluada:"+request.getEvent().getName());
     request.getEvent().setName("Succes!!!");
+    insert(new Response("OK"));
     update( request );
     
 end    
