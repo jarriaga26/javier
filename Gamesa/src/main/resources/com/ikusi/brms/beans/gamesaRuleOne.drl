@@ -4,8 +4,11 @@ rule "test envio request"
  
 
 when 
-    $request : Request()
+    request : Request( getEvent().getName()== "Test_0_3_XXX" )
 then
-    System.out.println("objeto:"+$request);
+    System.out.println("ragla evaluada:"+request.getEvent().getName());
+    request.getEvent().setName("Succes!!!");
+    update( request );
+    
 end    
 
