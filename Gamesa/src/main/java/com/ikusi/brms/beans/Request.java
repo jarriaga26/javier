@@ -29,9 +29,12 @@ public class Request implements java.io.Serializable
    @com.thoughtworks.xstream.annotations.XStreamAlias("parents")
    private com.ikusi.brms.beans.Parents parents;
 
-   @org.kie.api.definition.type.Label(value = "response")
-    @com.thoughtworks.xstream.annotations.XStreamAlias("response")
+   @org.kie.api.definition.type.Label("response")
+   @com.thoughtworks.xstream.annotations.XStreamAlias("response")
    private com.ikusi.brms.beans.Response response;
+
+   @org.kie.api.definition.type.Label(value = "inMemory")
+   private java.lang.Boolean inMemory;
 
    public Request()
    {
@@ -87,17 +90,28 @@ public class Request implements java.io.Serializable
       this.response = response;
    }
 
+   public java.lang.Boolean getInMemory()
+   {
+      return this.inMemory;
+   }
+
+   public void setInMemory(java.lang.Boolean inMemory)
+   {
+      this.inMemory = inMemory;
+   }
+
    public Request(com.ikusi.brms.beans.Event event,
          com.ikusi.brms.beans.Device device,
          com.ikusi.brms.beans.Metrics metrics,
          com.ikusi.brms.beans.Parents parents,
-         com.ikusi.brms.beans.Response response)
+         com.ikusi.brms.beans.Response response, java.lang.Boolean inMemory)
    {
       this.event = event;
       this.device = device;
       this.metrics = metrics;
       this.parents = parents;
       this.response = response;
+      this.inMemory = inMemory;
    }
 
 }
