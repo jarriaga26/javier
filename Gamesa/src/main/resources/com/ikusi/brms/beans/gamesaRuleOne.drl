@@ -8,7 +8,7 @@ when
 then
     System.out.println("ragla evaluada ver 1.0:"+request.getEvent().getName());
     request.getEvent().setName("Succes");
-    request.getResponse().setResultado("WAIT");
+    request.getResponse().setResultado("CREATE");
     request.getResponse().setTiempoEspera(2);
     
     update( request );
