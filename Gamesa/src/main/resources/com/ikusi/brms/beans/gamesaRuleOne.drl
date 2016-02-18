@@ -1,4 +1,5 @@
 package com.ikusi.brms.beans;
+global java.util.List devices;
 
 rule "test envio request"
  
