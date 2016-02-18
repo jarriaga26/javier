@@ -6,10 +6,12 @@ rule "test envio request"
 when 
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
 then
-    System.out.println("ragla evaluada ver 1.0:"+request.getEvent().getName());
+    System.out.println("regla evaluada ver 1.0:"+request.getEvent().getName());
     request.getEvent().setName("Succes");
     request.getResponse().setResultado("CREATE");
     request.getResponse().setTiempoEspera(2);
+     
+    devices.add(request); 
     
     update( request );
     
