@@ -17,12 +17,30 @@ then
     request.getEvent().setName("Succes");
     request.getResponse().setResultado("CREATE");
     request.getResponse().setTiempoEspera(2);
-     
-
-    
-    
     System.out.println("devices content 1.0:"+devices);
     update( request );
     
 end    
+
+rule "device no en memoria" 
+   no-loop 
+when
+    request : Request( getEvent().getName()== "Test_0_3_XXX" )
+    not isOnMemory(req:request)
+then 
+    System.out.println("entra a regla nueva");
+    request.setInMemory(true);
+    System.out.println("add...");
+    update( request );
+end
+
+
+rule "device en memoria" 
+   no-loop 
+when
+    request : Request( getEvent().getName()== "Test_0_3_XXX" )
+    isOnMemory(req:request)
+then 
+    System.out.println("ya esta en memoria");
+end
 
