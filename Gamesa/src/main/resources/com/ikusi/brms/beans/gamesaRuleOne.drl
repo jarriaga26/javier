@@ -1,8 +1,14 @@
 package com.ikusi.brms.beans;
 global java.util.List devices;
 
+
+query "isOnMemory" (Request request) 
+     req: Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId());
+end
+
+
+
 rule "test envio request"
- 
 
 when 
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
@@ -12,7 +18,7 @@ then
     request.getResponse().setResultado("CREATE");
     request.getResponse().setTiempoEspera(2);
      
-    devices.add(request); 
+
     
     
     System.out.println("devices content 1.0:"+devices);
