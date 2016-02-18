@@ -22,6 +22,9 @@ public class Event implements java.io.Serializable
    @org.kie.api.definition.type.Label("colector")
    private java.lang.String colector;
 
+   @org.kie.api.definition.type.Label(value = "uei")
+   private java.lang.String uei;
+
    public Event()
    {
    }
@@ -76,15 +79,26 @@ public class Event implements java.io.Serializable
       this.time = time;
    }
 
+   public java.lang.String getUei()
+   {
+      return this.uei;
+   }
+
+   public void setUei(java.lang.String uei)
+   {
+      this.uei = uei;
+   }
+
    public Event(java.lang.String name, java.lang.String context,
          java.lang.String severity, java.lang.String time,
-         java.lang.String colector)
+         java.lang.String colector, java.lang.String uei)
    {
       this.name = name;
       this.context = context;
       this.severity = severity;
       this.time = time;
       this.colector = colector;
+      this.uei = uei;
    }
 
 }
