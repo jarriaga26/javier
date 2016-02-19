@@ -30,7 +30,9 @@ rule "device no en memoria"
 when
     request : Request( event.name == "Test_0_3_XXX", inMemory == false)
 then 
+    request.setInMemory(true);
     System.out.println("no esta en memoria");
+    update( request );
 end
 
 
