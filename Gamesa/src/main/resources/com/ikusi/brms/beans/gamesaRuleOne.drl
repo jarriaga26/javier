@@ -17,10 +17,10 @@ end
 
 
 rule "device en memoria" 
-   no-loop true
+   
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
-    Request(getInMemory() == true , getDevice().getSysId() == request.getDevice().getSysId());
+    
     
 then 
     System.out.println("ya esta en memoria");
