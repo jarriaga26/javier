@@ -3,7 +3,6 @@ package com.ikusi.brms.beans;
 
 
 query "isOnMemory" (Request request) 
-     System.out.println("request on query:"+request);
      req: Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId());
 end
 
