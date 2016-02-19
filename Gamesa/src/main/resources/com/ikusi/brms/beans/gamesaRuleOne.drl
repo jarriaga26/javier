@@ -26,8 +26,8 @@ rule "device no en memoria"
    no-loop 
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
+    not (exists(Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId())));
     
-    not isOnMemory(request)
 then 
     System.out.println("entra a regla nueva");
     request.setInMemory(true);
@@ -40,7 +40,8 @@ rule "device en memoria"
    no-loop 
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
-    isOnMemory(req:request)
+    Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId());
+    
 then 
     System.out.println("ya esta en memoria");
 end
