@@ -15,16 +15,3 @@ then
     
 end    
 
-rule "device no en memoria" 
-   no-loop true
-when
-    request : Request( getEvent().getName()== "Test_0_3_XXX" )
-    not Request(getInMemory());
-    
-then 
-    System.out.println("entra a regla nueva");
-    request.setInMemory(true);
-    System.out.println("add...");
-    update( request );
-end
-
