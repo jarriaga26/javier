@@ -29,11 +29,9 @@ end
 rule "device no en memoria" 
    
 when
-    request : Request( event.name == "Test_0_3_XXX", !getInmemory())
-    
-    
+    request : Request( event.name == "Test_0_3_XXX", getInMemory() == false)
 then 
-    System.out.println("ya esta en memoria");
+    System.out.println("no esta en memoria");
 end
 
 
