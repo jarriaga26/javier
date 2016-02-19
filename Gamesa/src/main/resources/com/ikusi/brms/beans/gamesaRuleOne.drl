@@ -23,7 +23,7 @@ then
 end    
 
 rule "device no en memoria" 
-   no-loop 
+   no-loop true
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
     not (exists(Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId())));
@@ -37,7 +37,7 @@ end
 
 
 rule "device en memoria" 
-   no-loop 
+   no-loop true
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
     Request(getInMemory(), getDevice().getSysId() == request.getDevice().getSysId());
