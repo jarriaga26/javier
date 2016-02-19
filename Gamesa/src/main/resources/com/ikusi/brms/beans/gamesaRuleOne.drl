@@ -31,8 +31,8 @@ when
     request : Request( event.name == "Test_0_3_XXX", inMemory == false)
 then
     System.out.println("no esta en memoria:"+request.getInMemory());
-    
-   
+    request.setInMemory(true);
+    update(request);
     
 end
 
