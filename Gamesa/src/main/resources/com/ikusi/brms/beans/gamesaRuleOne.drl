@@ -19,8 +19,8 @@ end
 rule "device en memoria" 
    
 when
-    request : Request( getEvent().getName()== "Test_0_3_XXX" )
-    
+    request : Request( event.name == "Test_0_3_XXX", $sysID:getDevice().getSysId()  )
+    Request(getInMemory(), getDevice().getSysId() == $sysID);
     
 then 
     System.out.println("ya esta en memoria");
