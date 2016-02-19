@@ -17,7 +17,7 @@ then
     request.getEvent().setName("Succes");
     request.getResponse().setResultado("CREATE");
     request.getResponse().setTiempoEspera(2);
-    System.out.println("devices content 1.0:"+devices);
+
     update( request );
     
 end    
