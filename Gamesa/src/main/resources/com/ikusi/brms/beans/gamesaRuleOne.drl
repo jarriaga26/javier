@@ -26,7 +26,8 @@ rule "device no en memoria"
    no-loop 
 when
     request : Request( getEvent().getName()== "Test_0_3_XXX" )
-    not isOnMemory(req:request)
+    
+    not isOnMemory(request)
 then 
     System.out.println("entra a regla nueva");
     request.setInMemory(true);
