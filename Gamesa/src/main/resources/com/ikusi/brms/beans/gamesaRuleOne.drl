@@ -1,5 +1,5 @@
 package com.ikusi.brms.beans;
-global java.util.List devices;
+
 
 
 query "isOnMemory" (Request request) 
