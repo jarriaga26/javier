@@ -22,7 +22,7 @@ when
     Request($sysID != null,inMemory == true, device.sysId == $sysID);
     
 then 
-    System.out.println("the device: "+request.getDevice().getSyssId() +" is already in memory... ");
+    System.out.println("the device: "+request.getDevice().getSysId() +" is already in memory... ");
     System.out.println("whit event: "+request.getEvent().getName());
     System.out.println("return to FUSE: NO");
     retract(request);
@@ -33,9 +33,9 @@ rule "device no en memoria"
 when
     request : Request( event.name == "Test_0_3_XXX", inMemory == false)
 then
-    System.out.println("the device was insert in memory:"+request.getDevice().getSyssId());
+    System.out.println("the device was insert in memory:"+request.getDevice().getSysId());
     request.setInMemory(true);
-    request.("RESGISTRED");
+    request.setStatusBRMS("RESGISTRED");
     update(request);
     
 end
