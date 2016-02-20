@@ -22,7 +22,9 @@ when
     Request($sysID != null,inMemory == true, device.sysId == $sysID);
     
 then 
-    System.out.println("ya esta en memoria");
+    System.out.println("the device: "+request.getDevice().getSyssId() +" is already in memory... ");
+    System.out.println("whit event: "+request.getEvent().getName());
+    retract(request);
 end
 
 rule "device no en memoria" 
