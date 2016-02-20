@@ -18,12 +18,13 @@ end
 rule "device en memoria" 
    no-loop true
 when
-    request : Request( event.name == "Test_0_3_XXX", $sysID:device.sysId)
+    request : Request( event.name == "Test_0_3_XXX", statusBRMS=="INICIAL", $sysID:device.sysId)
     Request($sysID != null,inMemory == true, device.sysId == $sysID);
     
 then 
     System.out.println("the device: "+request.getDevice().getSyssId() +" is already in memory... ");
     System.out.println("whit event: "+request.getEvent().getName());
+    System.out.println("return to FUSE: NO");
     retract(request);
 end
 
