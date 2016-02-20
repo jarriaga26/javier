@@ -36,6 +36,7 @@ public class Request implements java.io.Serializable
    @org.kie.api.definition.type.Label("inMemory")
    private java.lang.Boolean inMemory;
 
+   @org.kie.api.definition.type.Label("statusBRMS")
    private java.lang.String statusBRMS;
 
    public Request()
