@@ -33,8 +33,10 @@ public class Request implements java.io.Serializable
    @com.thoughtworks.xstream.annotations.XStreamAlias("response")
    private com.ikusi.brms.beans.Response response;
 
-   @org.kie.api.definition.type.Label(value = "inMemory")
+   @org.kie.api.definition.type.Label("inMemory")
    private java.lang.Boolean inMemory;
+
+   private java.lang.String statusBRMS;
 
    public Request()
    {
@@ -100,11 +102,22 @@ public class Request implements java.io.Serializable
       this.inMemory = inMemory;
    }
 
+   public java.lang.String getStatusBRMS()
+   {
+      return this.statusBRMS;
+   }
+
+   public void setStatusBRMS(java.lang.String statusBRMS)
+   {
+      this.statusBRMS = statusBRMS;
+   }
+
    public Request(com.ikusi.brms.beans.Event event,
          com.ikusi.brms.beans.Device device,
          com.ikusi.brms.beans.Metrics metrics,
          com.ikusi.brms.beans.Parents parents,
-         com.ikusi.brms.beans.Response response, java.lang.Boolean inMemory)
+         com.ikusi.brms.beans.Response response, java.lang.Boolean inMemory,
+         java.lang.String statusBRMS)
    {
       this.event = event;
       this.device = device;
@@ -112,6 +125,7 @@ public class Request implements java.io.Serializable
       this.parents = parents;
       this.response = response;
       this.inMemory = inMemory;
+      this.statusBRMS = statusBRMS;
    }
 
 }
