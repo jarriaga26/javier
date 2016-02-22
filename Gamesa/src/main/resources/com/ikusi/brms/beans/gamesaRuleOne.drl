@@ -18,7 +18,7 @@ end
 rule "device en memoria" 
    no-loop true
 when
-    request : Request( event.name == "Test_0_3_XXX", getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
+    request : Request( getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
     Request($sysID != null,inMemory == true, device.sysId == $sysID,event.name == $event );
 then 
     System.out.println("the device: "+request.getDevice().getSysId() +" is already in memory whit the same event... ");
@@ -31,7 +31,7 @@ end
 rule "device en memoria diferente evento" 
    no-loop true
 when
-    request : Request( event.name == "Test_0_3_XXX", getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
+    request : Request( getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
     Request($sysID != null,inMemory == true, device.sysId == $sysID,event.name == $event );
 then 
     System.out.println("the device: "+request.getDevice().getSysId() +" is already in memory whit the diferente event... ");
@@ -45,7 +45,7 @@ end
 rule "device no en memoria" 
    no-loop true
 when
-    request : Request( event.name == "Test_0_3_XXX", inMemory == false)
+    request : Request( inMemory == false)
 then
     System.out.println("the device was insert in memory:"+request.getDevice().getSysId());
     System.out.println("return to FUSE: WAIT");
@@ -55,10 +55,10 @@ then
 end
 
 rule "SAI gamesa"
-
+   no-loop true
 when
-     Request(device.name=="SAI" statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
-     request : Request($sysID != null,statusBRMS == "RESGISTRED",event.name="POWER FAIL",device.sysId == $sysID);
+     Request(device.name == "SAI", statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
+     request : Request($sysID != null,statusBRMS == "RESGISTRED",event.name== "POWER FAIL",device.sysId == $sysID);
 then
-
+    System.out.println("SAI down con previo power fail:");
  end
