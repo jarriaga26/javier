@@ -54,10 +54,11 @@ then
     update(request);
 end
 
-rule "SAI gamesa "
+rule "SAI gamesa"
 
 when
-     Request(device.name="SAI" statusBRMS == "INICIAL", event.name="NODE DOWN", $sysID:device.sysId)
+     Request(device.name=="SAI" statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
      request : Request($sysID != null,statusBRMS == "RESGISTRED",event.name="POWER FAIL",device.sysId == $sysID);
-then    
- 
+then
+
+ end
