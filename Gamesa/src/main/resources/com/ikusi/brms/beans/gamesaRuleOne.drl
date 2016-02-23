@@ -45,7 +45,8 @@ end
 rule "device no en memoria" 
    no-loop true
 when
-    request : Request( inMemory == false)
+    request : Request( getStatusBRMS() == "INICIAL",$sysID:device.sysId )
+    not (exists(Request($sysID != null,inMemory == false, device.sysId == $sysID)));
 then
     System.out.println("the device was insert in memory:"+request.getDevice().getSysId());
     System.out.println("return to FUSE: WAIT");
