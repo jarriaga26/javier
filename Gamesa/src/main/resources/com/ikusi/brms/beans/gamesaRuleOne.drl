@@ -64,7 +64,7 @@ when
      request2 : Request($sysID != null,statusBRMS == "RESGISTRED",event.name== "POWER FAIL",device.sysId == $sysID);
 then
     System.out.println("SAI down con previo power fail:");
-    request.setStatusBRMS("RESGISTRED");
+    request2.setStatusBRMS("RESGISTRED");
     System.out.println("return to FUSE: WAIT for childrens");
     retract(request2);
 end
