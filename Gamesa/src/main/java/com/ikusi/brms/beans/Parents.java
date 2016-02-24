@@ -35,10 +35,9 @@ public class Parents implements java.io.Serializable
 
    public java.util.List<java.lang.String> getParentsAsString()
    {
-      java.util.List<java.lang.String> list= new java.util.ArrayList<>();
        
       for(com.ikusi.brms.beans.Parent parent: parents){
-          list.add(parent.get);
+          parentsAsString.add(parent.getSysId());
       }
        
       return this.parentsAsString;
