@@ -80,6 +80,6 @@ when
     request2: Request( new Parent(device.sysId) memberOf  $padres )
 
 then 
-System.out.println("ADSdsdasdasdasd version 1.5 :-D"+$padres );
+System.out.println("ADSdsdasdasdasd version 1.5com.ikusi.brms.beans.Parents( ) :-D"+$padres );
 end 
 
