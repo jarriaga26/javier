@@ -1,5 +1,9 @@
 package com.ikusi.brms.beans;
 
+function boolean hasParents(){
+    return true;
+}
+
 
 rule "test envio request"
     no-loop true
@@ -70,5 +74,12 @@ then
 end
 
 
+rule "busca papa"
+ no-loop true
+when 
+    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents ,hasParents())
 
+then 
+System.out.println("ADSdsdasdasdasd");
+end 
 
