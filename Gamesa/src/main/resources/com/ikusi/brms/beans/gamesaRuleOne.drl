@@ -80,7 +80,8 @@ end
 rule "busca papa"
  no-loop true
 when 
-    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents ,hasParents($padres))
+    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
+    eval(hasParents($padres))
 
 then 
 System.out.println("ADSdsdasdasdasd version 1.1");
