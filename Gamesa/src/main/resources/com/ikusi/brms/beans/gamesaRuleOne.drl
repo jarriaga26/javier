@@ -77,10 +77,10 @@ rule "busca papa"
  no-loop true
 when 
     request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
-    possibleParents: Request(getStatusBRMS() == "RESGISTRED", $padres contains "440a00af4f6e0200e00d029d0210c7fd" );
+    possibleParents: Request(  device.id  memberOf $padres  );
     
 
 then 
-System.out.println("ADSdsdasdasdasd version 1.2 :-D");
+System.out.println("ADSdsdasdasdasd version 1.3 :-D");
 end 
 
