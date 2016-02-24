@@ -77,7 +77,7 @@ rule "busca papa"
  no-loop true
 when 
     request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
-    possibleParents: Request(getStatusBRMS() == "RESGISTRED", $padres contains device.sysId );
+    possibleParents: Request(getStatusBRMS() == "RESGISTRED", $padres contains "440a00af4f6e0200e00d029d0210c7fd" );
     
 
 then 
