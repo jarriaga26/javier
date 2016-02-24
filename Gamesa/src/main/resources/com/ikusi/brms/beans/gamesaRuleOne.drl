@@ -2,10 +2,6 @@ package com.ikusi.brms.beans;
 
 import java.util.*;
 
-function boolean hasParents(List lista){
-    System.out.println("from function "+lista);
-    return true;
-}
 
 
 rule "test envio request"
@@ -81,9 +77,10 @@ rule "busca papa"
  no-loop true
 when 
     request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
-    eval(hasParents($padres))
+    possibleParents: Request(getStatusBRMS() == "RESGISTRED", $padres contains device.sysId );
+    
 
 then 
-System.out.println("ADSdsdasdasdasd version 1.1");
+System.out.println("ADSdsdasdasdasd version 1.1 :-D");
 end 
 
