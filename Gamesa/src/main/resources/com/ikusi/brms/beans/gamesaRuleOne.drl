@@ -1,6 +1,10 @@
 package com.ikusi.brms.beans;
 
-function boolean hasParents(){
+function boolean hasParents(List parentList){
+    System.out.println("en la funcion: "+parenList);
+    
+    
+    
     return true;
 }
 
@@ -77,7 +81,7 @@ end
 rule "busca papa"
  no-loop true
 when 
-    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents ,hasParents())
+    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0,hasParents(parents.parents))
 
 then 
 System.out.println("ADSdsdasdasdasd");
