@@ -34,5 +34,21 @@ public class Parent implements java.io.Serializable
    {
       this.sysId = sysId;
    }
-
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Parent other = (Parent) obj;
+	if (sysId == null) {
+		if (other.sysId != null)
+			return false;
+	} else if (!sysId.equals(other.sysId))
+		return false;
+	return true;
+}
+   
 }
