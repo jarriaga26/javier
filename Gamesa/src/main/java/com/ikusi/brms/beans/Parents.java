@@ -37,7 +37,7 @@ public class Parents implements java.io.Serializable
 
    
 
-   public Parents(java.util.List<com.ikusi.brms.beans.Parent> parents,
+   public Parents(java.util.List<com.ikusi.brms.beans.Parent> parents
    )
    {
       this.parents = parents;
