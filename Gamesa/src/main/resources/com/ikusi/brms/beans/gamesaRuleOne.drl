@@ -71,6 +71,9 @@ then
     System.out.println("return to FUSE: WAIT for childrens");
     request1.getEvent().setName("POWER FAIL + NODE DOWN");
     request1.setStatusBRMS("WAIT");
+    Jerarquia jerarquia= new Jerarquia();
+    jerarquia.getNodos().add(request1.device);
+    jerarquia.setId(request1.device.sysId);
     retract(request2);
     update(request1);
 end
@@ -79,7 +82,7 @@ end
 rule "busca papa"
  no-loop true
 when 
-    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents,$idHijo:device.sysId)
+    request : Request(getStatusBRMS() == "WAIT", parents.parents.size > 0, $padres:parents.parents,$idHijo:device.sysId)
     request2 : Request( new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 
 then 
