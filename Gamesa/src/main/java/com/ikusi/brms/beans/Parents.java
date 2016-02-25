@@ -15,28 +15,45 @@ public class Parents implements java.io.Serializable
 
    @org.kie.api.definition.type.Label("parents")
    @com.thoughtworks.xstream.annotations.XStreamImplicit(itemFieldName = "parent")
-   private java.util.List<java.lang.String> parents;
+   private java.util.List<com.ikusi.brms.beans.Parent> parents;
+
+   private java.util.List<java.lang.String> parentsAsString;
 
    public Parents()
    {
-      
    }
 
-   public java.util.List<java.lang.String> getParents()
+   public java.util.List<com.ikusi.brms.beans.Parent> getParents()
    {
       return this.parents;
    }
 
-   public void setParents(java.util.List<java.lang.String> parents)
+   public void setParents(java.util.List<com.ikusi.brms.beans.Parent> parents)
    {
       this.parents = parents;
    }
 
-   
+   public java.util.List<java.lang.String> getParentsAsString()
+   {
+      java.util.List<java.lang.String> list= new java.util.ArrayList<>();
+       
+      for(com.ikusi.brms.beans.Parent parent: parents){
+          list.add(parent.get);
+      }
+       
+      return this.parentsAsString;
+   }
 
-   public Parents(java.util.List<java.lang.String> parents)
+   public void setParentsAsString(java.util.List<java.lang.String> parentsAsString)
+   {
+      this.parentsAsString = parentsAsString;
+   }
+
+   public Parents(java.util.List<com.ikusi.brms.beans.Parent> parents,
+         java.util.List<java.lang.String> parentsAsString)
    {
       this.parents = parents;
+      this.parentsAsString = parentsAsString;
    }
 
 }
