@@ -15,6 +15,7 @@ public class Jerarquia implements java.io.Serializable
 
    public Jerarquia()
    {
+       nodos= new  java.util.ArrayList<>();
    }
 
    public java.lang.String getId()
