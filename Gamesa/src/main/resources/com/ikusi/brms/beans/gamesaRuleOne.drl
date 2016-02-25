@@ -77,9 +77,19 @@ rule "busca papa"
  no-loop true
 when 
     request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
-    
+    request : Request( new Parent(device.sysId ) memberOf  $padres );
 
 then 
 System.out.println("ADSdsdasdasdasd version dddddd.5com.ikusi.brms.beans.Parents( ) :-D"+$padres );
 end 
+
+
+rule "busca papa ligth"
+ no-loop true
+when 
+    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
+    
+then 
+System.out.println("ADSdsdasdasdasd version ligth :-D"+$padres );
+end
 
