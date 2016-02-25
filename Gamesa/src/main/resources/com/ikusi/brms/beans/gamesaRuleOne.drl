@@ -69,7 +69,10 @@ then
     System.out.println("SAI down con previo power fail:");
     request2.setStatusBRMS("RESGISTRED");
     System.out.println("return to FUSE: WAIT for childrens");
+    request1.getEvent().setName("POWER FAIL + NODE DOWN");
+    request1.setStatusBRMS("WAIT");
     retract(request2);
+    update(request1);
 end
 
 
@@ -89,7 +92,6 @@ rule "busca papa ligth"
  no-loop true
 when 
     request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
-    
 then 
 System.out.println("ADSdsdasdasdasd version ligth :-D"+$padres );
 end
