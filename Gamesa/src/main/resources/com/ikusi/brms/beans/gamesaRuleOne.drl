@@ -80,7 +80,7 @@ when
     request2 : Request( new Parent(device.sysId ) memberOf  $padres );
 
 then 
-System.out.println("ADSdsdasdasdasd version dddddd.5com.ikusi.brms.beans.Parents( ) :-D"+$padres );
+System.out.println("Es hijo de "+request2.device.sysId );
 end 
 
 
