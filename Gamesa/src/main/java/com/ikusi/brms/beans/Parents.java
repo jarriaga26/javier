@@ -17,7 +17,7 @@ public class Parents implements java.io.Serializable
    @com.thoughtworks.xstream.annotations.XStreamImplicit(itemFieldName = "parent")
    private java.util.List<com.ikusi.brms.beans.Parent> parents;
 
-   private java.util.List<java.lang.String> parentsAsString;
+   
 
    public Parents()
    {
@@ -33,27 +33,15 @@ public class Parents implements java.io.Serializable
       this.parents = parents;
    }
 
-   public java.util.List<java.lang.String> getParentsAsString()
-   {
-      java.util.List<java.lang.String> list= new java.util.ArrayList<>();
-       
-      for(com.ikusi.brms.beans.Parent parent: parents){
-          list.add(parent.get);
-      }
-       
-      return this.parentsAsString;
-   }
+  
 
-   public void setParentsAsString(java.util.List<java.lang.String> parentsAsString)
-   {
-      this.parentsAsString = parentsAsString;
-   }
+   
 
    public Parents(java.util.List<com.ikusi.brms.beans.Parent> parents,
-         java.util.List<java.lang.String> parentsAsString)
+   )
    {
       this.parents = parents;
-      this.parentsAsString = parentsAsString;
+   
    }
 
 }
