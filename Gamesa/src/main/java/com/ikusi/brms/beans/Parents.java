@@ -21,7 +21,7 @@ public class Parents implements java.io.Serializable
 
    public Parents()
    {
-      parentsAsString = new java.util.List<>();
+      parentsAsString = new java.util.ArrayList<>();
    }
 
    public java.util.List<com.ikusi.brms.beans.Parent> getParents()
