@@ -54,7 +54,7 @@ public class Parents implements java.io.Serializable
    {
       this.parents = parents;
       this.parentsAsString = parentsAsString;
-      parentsAsString = new java.util.List<>();
+      parentsAsString = new java.util.ArrayList<>();
    }
 
 }
