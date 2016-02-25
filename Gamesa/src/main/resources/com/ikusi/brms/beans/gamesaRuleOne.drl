@@ -76,11 +76,12 @@ end
 rule "busca papa"
  no-loop true
 when 
-    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents)
+    request : Request(getStatusBRMS() == "RESGISTRED", parents.parents.size > 0, $padres:parents.parents,$idHijo:device.sysId)
     request2 : Request( new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 
 then 
-System.out.println("Es hijo de "+$idPadre );
+System.out.println("device: "+$idHijo+ " Es hijo de "+$idPadre );
+
 end 
 
 
