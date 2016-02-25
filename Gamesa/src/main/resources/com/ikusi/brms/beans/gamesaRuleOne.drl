@@ -80,6 +80,6 @@ when
    
 
 then 
-System.out.println("ADSdsdasdasdasd version 1.5com.ikusi.brms.beans.Parents( ) :-D"+$padres );
+System.out.println("ADSdsdasdasdasd version dddddd.5com.ikusi.brms.beans.Parents( ) :-D"+$padres );
 end 
 
