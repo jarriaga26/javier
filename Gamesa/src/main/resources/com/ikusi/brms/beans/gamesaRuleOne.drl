@@ -72,8 +72,8 @@ then
     request1.getEvent().setName("POWER FAIL + NODE DOWN");
     request1.setStatusBRMS("WAIT");
     Jerarquia jerarquia= new Jerarquia();
-    jerarquia.getNodos().add(request1.device);
-    jerarquia.setId(request1.device.sysId);
+    jerarquia.getNodos().add(request1.getDevice());
+    jerarquia.setId($sysID);
     retract(request2);
     update(request1);
 end
