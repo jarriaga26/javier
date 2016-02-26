@@ -79,7 +79,7 @@ end
 rule "Add to hierarchy as parent"
 
 when
-    father: Request( getStatusBRMS()== "SAVED", getJerarquia() == null, parents!.parents.size == 0);
+    father: Request( getStatusBRMS()== "SAVED", getJerarquia() == null, parents.parents == null);
 then
     System.out.println("Creando Jerarquia...");
     System.out.println("Parent: "+father.getDevice().getSysId());
