@@ -64,7 +64,7 @@ end
 rule "add to jerarquia as child"
 
 when 
-    child: Request( getStatusBRMS()== "SAVED", getJerarquia() == null, $padres:parents.parents )
+    child: Request( getStatusBRMS()== "SAVED", getJerarquia() == null,parents.parents.size > 0, $padres:parents.parents )
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then    
     System.out.println("add child"+child.getDevice().getSysId());
@@ -79,7 +79,7 @@ end
 rule "Add to hierarchy as parent"
 
 when
-    father: Request( getStatusBRMS()== "SAVED", getJerarquia() == null, parents.parents != null);
+    father: Request( getStatusBRMS()== "SAVED", getJerarquia() == null, parents.parents.size == 0);
 then
     System.out.println("Creando Jerarquia...");
     System.out.println("Parent: "+father.getDevice().getSysId());
