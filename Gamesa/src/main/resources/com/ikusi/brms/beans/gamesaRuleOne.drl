@@ -76,7 +76,7 @@ when
     request: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", parents.parents.size == 0 , $sysIdPadre:device.sysId);
 then
     Jerarquia jerarquia= new Jerarquia();
-    jerarquia.getNodos().add(request1);
+    jerarquia.getNodos().add(request);
     jerarquia.setId($sysIdPadre);
     request.setJerarquia(jerarquia.getId());
 end
