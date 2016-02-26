@@ -56,9 +56,31 @@ then
     System.out.println("the device was insert in memory:"+request.getDevice().getSysId());
     System.out.println("return to FUSE: WAIT");
     request.setInMemory(true);
-    request.setStatusBRMS("RESGISTRED");
+    request.setStatusBRMS("SAVED");
     update(request);
 end
+
+
+rule "add to jerarquia as child"
+
+when 
+    request: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", $padres:parents.parents );
+
+then    
+    
+end
+
+rule "add to jerarqui as father"
+
+when
+    request: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", parents.parents.size == 0 , $sysIdPadre:device.sysId);
+then
+    Jerarquia jerarquia= new Jerarquia();
+    jerarquia.getNodos().add(request1);
+    jerarquia.setId($sysIdPadre);
+    request.setJerarquia(jerarquia.getId());
+end
+
 
 rule "SAI gamesa"
    no-loop true
@@ -74,9 +96,12 @@ then
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(request1.getDevice());
     jerarquia.setId($sysID);
+    
     retract(request2);
     update(request1);
 end
+
+
 
 
 rule "busca papa"
