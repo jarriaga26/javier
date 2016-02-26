@@ -93,10 +93,22 @@ then
 end
 
 
+
+rule "value jerarquia dummy..."
+when 
+    jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
+    requestSAI: Request(device.name == "SAI", event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
+then
+    System.out.println("blob joooob!!!");
+end
+
+
+
+
 rule "SAI gamesa"
    no-loop true
 when
-     request1 : Request(device.name == "SAI_", statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
+     request1 : Request(device.name == "SAI", statusBRMS == "SAVED", event.name == "NODE DOWN", $sysID:device.sysId)
      request2 : Request($sysID != null,statusBRMS == "RESGISTRED",event.name== "POWER FAIL",device.sysId == $sysID);
 then
     System.out.println("SAI down con previo power fail:");
@@ -105,7 +117,8 @@ then
     request1.getEvent().setName("POWER FAIL + NODE DOWN");
     request1.setStatusBRMS("WAIT");
     
-    
+    update(request2);
+    retract(request1);
 end
 
 
