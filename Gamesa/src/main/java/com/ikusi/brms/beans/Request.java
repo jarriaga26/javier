@@ -39,7 +39,7 @@ public class Request implements java.io.Serializable
    @org.kie.api.definition.type.Label("statusBRMS")
    private java.lang.String statusBRMS;
 
-   private java.lang.Short jerarquia;
+   private String jerarquia;
 
    public Request()
    {
@@ -115,12 +115,12 @@ public class Request implements java.io.Serializable
       this.statusBRMS = statusBRMS;
    }
 
-   public java.lang.Short getJerarquia()
+   public java.lang.String getJerarquia()
    {
       return this.jerarquia;
    }
 
-   public void setJerarquia(java.lang.Short jerarquia)
+   public void setJerarquia(java.lang.String jerarquia)
    {
       this.jerarquia = jerarquia;
    }
@@ -130,7 +130,7 @@ public class Request implements java.io.Serializable
          com.ikusi.brms.beans.Metrics metrics,
          com.ikusi.brms.beans.Parents parents,
          com.ikusi.brms.beans.Response response, java.lang.Boolean inMemory,
-         java.lang.String statusBRMS, java.lang.Short jerarquia)
+         java.lang.String statusBRMS, java.lang.String jerarquia)
    {
       this.event = event;
       this.device = device;
