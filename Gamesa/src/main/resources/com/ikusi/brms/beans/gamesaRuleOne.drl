@@ -67,9 +67,11 @@ when
     child: Request( getStatusBRMS()== "SAVED", jerarquia == null, $padres:parents.parents )
     parent : Request(jerarquia != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then    
+    System.out.println("add child"+child.getDevice().getSysId());
+    System.out.println("to hierarchy"+parent.getJerarquia().getId());
     child.setJerarquia(parent.getJerarquia());
     parent.getJerarquia().getNodos().add(child);
-    
+    com.ikusi.brms.beans.Request( )com.ikusi.brms.beans.Request( )com.ikusi.brms.beans.Request( )
     update(parent);
     update(child);
 end
