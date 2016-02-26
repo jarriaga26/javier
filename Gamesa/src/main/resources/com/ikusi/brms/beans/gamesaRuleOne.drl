@@ -64,22 +64,23 @@ end
 rule "add to jerarquia as child"
 
 when 
-    request: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", $padres:parents.parents );
-
+    child: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", $padres:parents.parents );
+    parent : Request( new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then    
     
 end
 
-rule "add to jerarqui as father"
+rule "Add to hierarchy as father"
 
 when
-    request: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", parents.parents.size == 0 , $sysIdPadre:device.sysId);
+    father: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", parents.parents.size == 0);
 then
     Jerarquia jerarquia= new Jerarquia();
-    jerarquia.getNodos().add(request);
-    jerarquia.setId($sysIdPadre);
-    
-    
+    jerarquia.getNodos().add(father);
+    jerarquia.setId(father.getDevice().getSysId());
+    jerarquia.setTipo("GAMESA");
+    request.setJerarquia($sysIdPadre);
+    insert(jerarquia);
     update(request);
 end
 
