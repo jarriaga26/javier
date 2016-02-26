@@ -78,7 +78,9 @@ then
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(request);
     jerarquia.setId($sysIdPadre);
-    request.setJerarquia(jerarquia.getId());
+    
+    
+    update(request);
 end
 
 
@@ -93,12 +95,8 @@ then
     System.out.println("return to FUSE: WAIT for childrens");
     request1.getEvent().setName("POWER FAIL + NODE DOWN");
     request1.setStatusBRMS("WAIT");
-    Jerarquia jerarquia= new Jerarquia();
-    jerarquia.getNodos().add(request1.getDevice());
-    jerarquia.setId($sysID);
     
-    retract(request2);
-    update(request1);
+    
 end
 
 
