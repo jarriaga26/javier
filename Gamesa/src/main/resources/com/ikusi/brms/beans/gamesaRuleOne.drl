@@ -64,31 +64,37 @@ end
 rule "add to jerarquia as child"
 
 when 
-    child: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", $padres:parents.parents );
-    parent : Request( new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
+    child: Request( getStatusBRMS()== "SAVED", jerarquia == null, $padres:parents.parents )
+    parent : Request(jerarquia != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then    
+    child.setJerarquia(parent.getJerarquia());
+    parent.getJerarquia().getNodos().add(child);
     
+    update(parent);
+    update(child);
 end
 
-rule "Add to hierarchy as father"
+rule "Add to hierarchy as parent"
 
 when
-    father: Request( getStatusBRMS()== "SAVED", jerarquia == "NONE", parents.parents.size == 0);
+    father: Request( getStatusBRMS()== "SAVED", jerarquia == null, parents.parents.size == 0);
 then
+    System.out.println("Creando Jerarquia...");
+    System.out.println("Parent: "+father.getDevice().getSysId());
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(father);
     jerarquia.setId(father.getDevice().getSysId());
-    jerarquia.setTipo("GAMESA");
-    request.setJerarquia($sysIdPadre);
+    jerarquia.setType("GAMESA");
+    father.setJerarquia(jerarquia);
     insert(jerarquia);
-    update(request);
+    update(father);
 end
 
 
 rule "SAI gamesa"
    no-loop true
 when
-     request1 : Request(device.name == "SAI", statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
+     request1 : Request(device.name == "SAI_", statusBRMS == "INICIAL", event.name == "NODE DOWN", $sysID:device.sysId)
      request2 : Request($sysID != null,statusBRMS == "RESGISTRED",event.name== "POWER FAIL",device.sysId == $sysID);
 then
     System.out.println("SAI down con previo power fail:");
