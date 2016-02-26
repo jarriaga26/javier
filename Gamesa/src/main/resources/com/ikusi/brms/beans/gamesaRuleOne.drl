@@ -71,7 +71,7 @@ then
     System.out.println("to hierarchy"+parent.getJerarquia().getId());
     child.setJerarquia(parent.getJerarquia());
     parent.getJerarquia().getNodos().add(child);
-    com.ikusi.brms.beans.Request( )com.ikusi.brms.beans.Request( )com.ikusi.brms.beans.Request( )
+    
     update(parent);
     update(child);
 end
