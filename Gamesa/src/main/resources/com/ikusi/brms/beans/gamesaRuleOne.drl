@@ -97,9 +97,9 @@ end
 rule "value jerarquia dummy..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
-    requestSAI: Request(device.name == "SAI", event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
+    requestSAI: Request() from   $listaHijos
 then
-    System.out.println("blob joooob!!!");
+    System.out.println("blob joooob!!!"+requestSAI.getDevice().getname());
 end
 
 
