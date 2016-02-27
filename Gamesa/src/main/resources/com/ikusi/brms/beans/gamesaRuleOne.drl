@@ -99,7 +99,7 @@ when
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
     requestSAI: Request() from   $listaHijos
 then
-    System.out.println("blob joooob!!!"+requestSAI.getDevice().getname());
+    System.out.println("blob joooob!!!"+requestSAI.getDevice().getName());
 end
 
 
