@@ -88,7 +88,7 @@ then
     jerarquia.setId(father.getDevice().getSysId());
     jerarquia.setType("GAMESA");
     father.setJerarquia(jerarquia);
-    insert(jerarquia);
+    insertLogical(jerarquia);
     update(father);
 end
 
@@ -114,7 +114,7 @@ when
 then
     System.out.println("SAI down con previo power fail:");
     request2.setStatusBRMS("SAVED");
-    System.out.println("return to FUSE: WAIT for childrens");
+    System.out.println("return to FUSE: WAIT for childrens: ");
     request2.getEvent().setName("POWER FAIL + NODE DOWN");
     request2.setStatusBRMS("WAIT");
     
