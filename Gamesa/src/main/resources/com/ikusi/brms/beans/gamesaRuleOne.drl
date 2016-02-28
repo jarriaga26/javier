@@ -73,6 +73,7 @@ then
     child.setJerarquia(parent.getJerarquia());
     parent.getJerarquia().getNodos().add(child);
     
+    update(parent.getJerarquia());
     update(parent);
     update(child);
 end
