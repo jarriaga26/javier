@@ -100,7 +100,6 @@ rule "value jerarquia dummy..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
     
-    
 then
     System.out.println("blob joooob1.1!!!"+$listaHijos);
     System.out.println("blob joooob2.1!!!"+$listaHijos);
@@ -112,7 +111,7 @@ rule "value jerarquia SAI..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
     requestSAI: Request(device.name == "SAI",statusBRMS=="WAIT" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
-    
+    requestRP: Request(device.name == "RP",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
 then
     System.out.println("blob joooob666.1!!!"+$listaHijos);
     System.out.println("blob joooob666.1!!!"+$listaHijos);
