@@ -131,9 +131,9 @@ then
     System.out.println("return to FUSE: WAIT for childrens: ");
     request2.getEvent().setName("POWER FAIL + NODE DOWN");
     request2.setStatusBRMS("WAIT");
-    
-    update(request2);
     retract(request1);
+    update(request2);
+    
 end
 
 
