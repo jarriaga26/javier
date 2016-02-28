@@ -111,7 +111,7 @@ end
 rule "value jerarquia SAI..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
-    requestSAI: Request(device.name == "SAI",statusBRMS="WAIT" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
+    requestSAI: Request(device.name == "SAI",statusBRMS=="WAIT" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
     
 then
     System.out.println("blob joooob666.1!!!"+$listaHijos);
