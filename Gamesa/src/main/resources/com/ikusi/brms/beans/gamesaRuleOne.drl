@@ -23,12 +23,13 @@ rule "device en memoria"
   
 when
     request : Request( getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
-    Request($sysID != null,$event != null,inMemory == true, device.sysId == $sysID,event.name == $event );
+    original: Request($sysID != null,$event != null,inMemory == true, device.sysId == $sysID,event.name == $event );
 then 
     System.out.println("the device: "+request.getDevice().getSysId() +" is already in memory whit the same event... ");
     System.out.println("whit event: "+request.getEvent().getName());
     System.out.println("return to FUSE: NO");
     retract(request);
+    update(original);
 end
 
 
