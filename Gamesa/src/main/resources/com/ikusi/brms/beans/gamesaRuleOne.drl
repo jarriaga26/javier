@@ -88,7 +88,7 @@ then
     jerarquia.setId(father.getDevice().getSysId());
     jerarquia.setType("GAMESA");
     father.setJerarquia(jerarquia);
-    insertLogical(jerarquia);
+    insert(jerarquia);
     update(father);
 end
 
