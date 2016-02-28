@@ -133,6 +133,7 @@ then
     request2.setStatusBRMS("WAIT");
     retract(request1);
     update(request2);
+    update(request2.getJerarquia());
     
 end
 
