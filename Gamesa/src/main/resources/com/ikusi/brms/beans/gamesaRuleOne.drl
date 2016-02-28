@@ -97,10 +97,10 @@ end
 rule "value jerarquia dummy..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
-    requestSAI: Request() from   $listaHijos
+    
 then
-    System.out.println("blob joooob1!!!"+requestSAI.getDevice().getName());
-    System.out.println("blob joooob2!!!"+requestSAI.getEvent().getName());
+    System.out.println("blob joooob1.1!!!"+$listaHijos);
+    System.out.println("blob joooob2.1!!!"+$listaHijos);
 end
 
 
