@@ -19,7 +19,7 @@ end
 
 
 rule "device en memoria" 
-   no-loop true
+   
   
 when
     request : Request( getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
@@ -34,7 +34,7 @@ end
 
 
 rule "device en memoria diferente evento" 
-   no-loop true
+   
   
 when
     request : Request( getStatusBRMS() == "INICIAL", $sysID:device.sysId, $event :event.name)
@@ -49,7 +49,7 @@ end
 
 
 rule "device no en memoria" 
-   no-loop true
+   
 when
     request : Request( getStatusBRMS() == "INICIAL",inMemory == false,$sysID:device.sysId )
    not ( exists(  Request($sysID != null,inMemory == true, device.sysId == $sysID)));
