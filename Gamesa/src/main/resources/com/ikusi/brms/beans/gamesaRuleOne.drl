@@ -115,7 +115,7 @@ when
     requestRS: Request(device.name == "RS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
     requestSO: Request(device.name == "SO",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
     requestIDU: Request(device.name == "IDU",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
-    requestIDU: Request(device.name == "SS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestSS: Request(device.name == "SS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
 then
     System.out.println("blob joooob666.2!!!"+$listaHijos);
     
