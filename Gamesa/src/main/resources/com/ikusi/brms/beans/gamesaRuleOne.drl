@@ -109,7 +109,7 @@ end
 rule "value jerarquia SAI..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
-    requestSAI: Request(device.name == "SAI",statusBRMS=="WAIT" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
+    requestSAI: Request(device.name == "SAI",statusBRMS=="RETEST" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
     requestRP: Request(device.name == "RP",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
     requestRS: Request(device.name == "RS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
     requestSO: Request(device.name == "SO",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
