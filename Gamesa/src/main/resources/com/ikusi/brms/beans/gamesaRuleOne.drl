@@ -109,12 +109,12 @@ end
 rule "value jerarquia SAI..."
 when 
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
-    requestSAI: Request(device.name == "SAI",statusBRMS=="RETEST" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
-    requestRP: Request(device.name == "RP",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
-    requestRS: Request(device.name == "RS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
-    requestSO: Request(device.name == "SO",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
-    requestIDU: Request(device.name == "IDU",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
-    requestSS: Request(device.name == "SS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestSAI: Request(device.name == "SAI",statusBRMS=="WAIT" , event.name == "POWER FAIL + NODE DOWN" ) from   $listaHijos
+    requestRP: Request(device.name == "RP",statusBRMS=="SAVED" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestRS: Request(device.name == "RS",statusBRMS=="SAVED" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestSO: Request(device.name == "SO",statusBRMS=="SAVED" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestIDU: Request(device.name == "IDU",statusBRMS=="SAVED" , event.name == "NODE DOWN" ) from   $listaHijos
+    requestSS: Request(device.name == "SS",statusBRMS=="SAVED" , event.name == "NODE DOWN" ) from   $listaHijos
 then
     System.out.println("levanta PW FAIL + NODE DOWN !!!" +$listaHijos);
     
