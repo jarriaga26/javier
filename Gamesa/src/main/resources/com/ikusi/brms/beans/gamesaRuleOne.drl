@@ -101,8 +101,7 @@ when
     jerarquia: Jerarquia(type=="GAMESA", $listaHijos:nodos )
     
 then
-    System.out.println("blob joooob1.1!!!"+$listaHijos);
-    System.out.println("blob joooob2.1!!!"+$listaHijos);
+    System.out.println("regla test!!!"+$listaHijos);
 end
 
 
@@ -117,7 +116,7 @@ when
     requestIDU: Request(device.name == "IDU",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
     requestSS: Request(device.name == "SS",statusBRMS=="WAIT" , event.name == "NODE DOWN" ) from   $listaHijos
 then
-    System.out.println("blob joooob666.2!!!"+$listaHijos);
+    System.out.println("levanta PW FAIL + NODE DOWN !!!" +$listaHijos);
     
 end
 
