@@ -12,6 +12,7 @@ public class Jerarquia implements java.io.Serializable
    private java.lang.String id;
    private java.lang.String type;
    private java.util.List<com.ikusi.brms.beans.Request> nodos;
+  
 
    public Jerarquia()
    {
