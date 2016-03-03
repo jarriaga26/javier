@@ -90,7 +90,6 @@ then
     System.out.println("jerarquia actual hijo: "+child.getJerarquia().getId());
     System.out.println("-------------------------------------------------------");
     child.getJerarquia().getNodos().retainAll(parent.getJerarquia().getNodos());
-    retract(parent.getJerarquia());
     parent.setJerarquia(child.getJerarquia());
     
     update(parent);
