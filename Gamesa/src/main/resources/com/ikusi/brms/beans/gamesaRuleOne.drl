@@ -72,11 +72,40 @@ then
     System.out.println("to hierarchy"+parent.getJerarquia().getId());
     child.setJerarquia(parent.getJerarquia());
     parent.getJerarquia().getNodos().add(child);
-    
+
     update(parent.getJerarquia());
     update(parent);
     update(child);
 end
+
+rule "add to jerarquia as child 2"
+
+when 
+    child: Request( getStatusBRMS()== "SAVED", getJerarquia() != null,parents.parents != null ,  $padres:parents.parents, $jerarquia_id: jerarquia.id )
+    parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres,jerarquia.id != $jerarquia_id, $idPadre:device.sysId );
+then    
+    System.out.println("en regla hierarchy: ");
+    System.out.println("jerarquia parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
+    System.out.println("jerarquia actual hijo: "+parent.getJerarquia().getId());
+    child.getJerarquia().getNodos().retainAll(parent.getJerarquia().getNodos());
+    retract(parent.getJerarquia());
+    parent.setJerarquia(child.getJerarquia());
+    
+    update(parent);
+    update(child);
+end
+
+
+
+rule "jerarquia"
+
+when 
+    jerarquia: Jerarquia(type=="GAMES", $listaHijos:nodos )
+then 
+    
+end
+
+
 
 rule "Add to hierarchy as parent"
 
