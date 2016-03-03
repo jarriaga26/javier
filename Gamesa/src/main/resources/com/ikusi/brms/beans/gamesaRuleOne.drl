@@ -87,7 +87,7 @@ then
     System.out.println("-------------------------------------------------------");
     System.out.println("en regla hierarchy: ");
     System.out.println("jerarquia parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
-    System.out.println("jerarquia actual hijo: "+parent.getJerarquia().getId());
+    System.out.println("jerarquia actual hijo: "+child.getJerarquia().getId());
     System.out.println("-------------------------------------------------------");
     child.getJerarquia().getNodos().retainAll(parent.getJerarquia().getNodos());
     retract(parent.getJerarquia());
