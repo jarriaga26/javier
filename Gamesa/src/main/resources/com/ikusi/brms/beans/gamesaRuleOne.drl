@@ -79,7 +79,7 @@ then
 end
 
 rule "add to jerarquia as child 2"
-
+no-loop
 when 
     child: Request( getStatusBRMS()== "SAVED", getJerarquia() != null,parents.parents != null ,  $padres:parents.parents, $jerarquia_id: jerarquia.id )
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres,jerarquia.id != $jerarquia_id, $idPadre:device.sysId );
