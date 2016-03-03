@@ -65,7 +65,7 @@ end
 rule "add to jerarquia as child"
 
 when 
-    child: Request( getStatusBRMS()== "SAVED", getJerarquia() == null,parents.parents != null ,parents.parents.size > 0, $padres:parents.parents )
+    child: Request( getStatusBRMS()== "SAVED",parents.parents != null ,parents.parents.size > 0, $padres:parents.parents )
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then    
     System.out.println("add child"+child.getDevice().getSysId());
@@ -84,9 +84,11 @@ when
     child: Request( getStatusBRMS()== "SAVED", getJerarquia() != null,parents.parents != null ,  $padres:parents.parents, $jerarquia_id: jerarquia.id )
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres,jerarquia.id != $jerarquia_id, $idPadre:device.sysId );
 then    
+    System.out.println("-------------------------------------------------------");
     System.out.println("en regla hierarchy: ");
     System.out.println("jerarquia parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
     System.out.println("jerarquia actual hijo: "+parent.getJerarquia().getId());
+    System.out.println("-------------------------------------------------------");
     child.getJerarquia().getNodos().retainAll(parent.getJerarquia().getNodos());
     retract(parent.getJerarquia());
     parent.setJerarquia(child.getJerarquia());
