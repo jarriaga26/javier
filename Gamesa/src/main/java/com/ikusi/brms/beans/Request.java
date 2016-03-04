@@ -142,4 +142,10 @@ public class Request implements java.io.Serializable
       this.jerarquia = jerarquia;
    }
 
+
+    public String toString(){
+        
+        return "idDevice:: "+this.device.getSysId();
+    }
+
 }
