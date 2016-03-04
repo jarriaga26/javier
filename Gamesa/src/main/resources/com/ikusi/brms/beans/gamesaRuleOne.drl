@@ -69,9 +69,7 @@ when
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then   
 
-   if(true){
-       System.out.println("add child"+child.getDevice().getSysId());
-   }
+   
     System.out.println("add child"+child.getDevice().getSysId());
     System.out.println("to hierarchy"+parent.getJerarquia().getId());
     child.setJerarquia(parent.getJerarquia());
