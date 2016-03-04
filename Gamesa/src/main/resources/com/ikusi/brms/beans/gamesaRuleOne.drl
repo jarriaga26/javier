@@ -98,6 +98,12 @@ then
     System.out.println("jerarquia after hijo: "+child.getJerarquia().getId());
     
     System.out.println("----------------------end---------------------------------");
+    System.out.println("----------------------jerarquias---------------------------------");
+    System.out.println("jerarquia "+parent.getJerarquia().getId()+" nodos: "+parent.getJerarquia().getNodos());
+    System.out.println("jerarquia "+child.getJerarquia().getId()+" nodos: "+child.getJerarquia().getNodos());
+    
+    System.out.println("----------------------end---------------------------------");
+    
     
     
     update(parent);
