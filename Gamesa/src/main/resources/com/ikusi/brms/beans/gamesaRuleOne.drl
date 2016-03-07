@@ -63,7 +63,7 @@ end
 
 
 rule "add to jerarquia as child"
-no-loop
+
 when 
     child: Request( getStatusBRMS()== "SAVED",jerarquia == null,parents.parents != null ,parents.parents.size > 0, $padres:parents.parents )
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
@@ -91,8 +91,10 @@ then
     System.out.println("jerarquia parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
     System.out.println("jerarquia actual hijo: "+child.getJerarquia().getId());
     System.out.println("----------------------after---------------------------------");
+    retract(parent.getJerarquia());
     child.getJerarquia().getNodos().addAll(parent.getJerarquia().getNodos());
     parent.setJerarquia(child.getJerarquia());
+    
     
     System.out.println("jerarquia after parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
     System.out.println("jerarquia after hijo: "+child.getJerarquia().getId());
