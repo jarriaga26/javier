@@ -3,7 +3,7 @@ package com.ikusi.brms.beans;
 import java.util.*;
 
 
-
+/**
 rule "test envio request"
     no-loop true
 when 
@@ -204,22 +204,22 @@ then
 System.out.println("ADSdsdasdasdasd version ligth :-D"+$padres );
 end
 
-
+**/
 
 
 
 //No tiene parents y existe en alguna jerarquia
 rule "kruskal machete"
 when 
-    nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    jerarquia: Jerarquia(nodo memberOf nodos ) 
+    request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
+    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) memberOf nodos ) 
 then
-    //remueve nodo dummy
+    request.setJerarquia(jerarquia);
+    Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     jerarquia.getNodos().remove(nodo);
-    //inserta el correcto
     jerarquia.getNodos().add(nodo);
-    nodo.setJerarquia(jerarquia);
-     
+    update(request);
+    update(jerarquia);
 end
 
 //No tiene parents y no existe en alguna jerarquia
