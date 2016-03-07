@@ -55,4 +55,10 @@ public class Nodo implements java.io.Serializable
       this.request = request;
    }
 
+    public Nodo(java.lang.String sys_id, java.lang.String eventName)
+   {
+      this.sys_id = sys_id;
+      this.eventName = eventName;
+   }
+
 }
