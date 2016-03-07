@@ -11,8 +11,7 @@ public class Jerarquia implements java.io.Serializable
 
    private java.lang.String id;
    private java.lang.String type;
-   private java.util.List<com.ikusi.brms.beans.Request> nodos;
-  
+   private java.util.List<com.ikusi.brms.beans.Nodo> nodos;
 
    public Jerarquia()
    {
@@ -39,18 +38,18 @@ public class Jerarquia implements java.io.Serializable
       this.type = type;
    }
 
-   public java.util.List<com.ikusi.brms.beans.Request> getNodos()
+   public java.util.List<com.ikusi.brms.beans.Nodo> getNodos()
    {
       return this.nodos;
    }
 
-   public void setNodos(java.util.List<com.ikusi.brms.beans.Request> nodos)
+   public void setNodos(java.util.List<com.ikusi.brms.beans.Nodo> nodos)
    {
       this.nodos = nodos;
    }
 
    public Jerarquia(java.lang.String id, java.lang.String type,
-         java.util.List<com.ikusi.brms.beans.Request> nodos)
+         java.util.List<com.ikusi.brms.beans.Nodo> nodos)
    {
       this.id = id;
       this.type = type;
