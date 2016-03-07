@@ -214,6 +214,7 @@ when
     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
     jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) memberOf nodos ) 
 then
+    System.out.println("No tiene parents y existe en alguna jerarquia");
     request.setJerarquia(jerarquia);
     Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     jerarquia.getNodos().remove(nodo);
@@ -221,7 +222,7 @@ then
     update(request);
     update(jerarquia);
 end
-
+/**
 //No tiene parents y no existe en alguna jerarquia
 rule "kruskal machete _ add jerarquia as parent"
 when 
@@ -260,3 +261,4 @@ then
     update(nodo);    
 
 end
+**/
