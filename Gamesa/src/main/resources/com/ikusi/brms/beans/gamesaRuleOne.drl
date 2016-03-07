@@ -69,7 +69,6 @@ when
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres, $idPadre:device.sysId );
 then   
 
-   
     System.out.println("add child"+child.getDevice().getSysId());
     System.out.println("to hierarchy"+parent.getJerarquia().getId());
     child.setJerarquia(parent.getJerarquia());
@@ -185,9 +184,6 @@ then
     
 end
 
-
-
-
 rule "busca papa"
  no-loop true
 when 
@@ -208,3 +204,59 @@ then
 System.out.println("ADSdsdasdasdasd version ligth :-D"+$padres );
 end
 
+
+
+
+
+//No tiene parents y existe en alguna jerarquia
+rule "kruskal machete"
+when 
+    nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
+    jerarquia: Jerarquia(nodo memberOf nodos ) 
+then
+    //remueve nodo dummy
+    jerarquia.getNodos().remove(nodo);
+    //inserta el correcto
+    jerarquia.getNodos().add(nodo);
+    nodo.setJerarquia(jerarquia);
+     
+end
+
+//No tiene parents y no existe en alguna jerarquia
+rule "kruskal machete _ add jerarquia as parent"
+when 
+    nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
+    $jerarquia: Jerarquia(nodo not memberOf nodos ) 
+then
+    System.out.println("Creando Jerarquia kuskal-machete... ");
+    System.out.println("nodo to add: "+nodo.getDevice().getSysId());
+    Jerarquia jerarquia= new Jerarquia();
+    jerarquia.getNodos().add(nodo);
+    jerarquia.setId(nodo.getDevice().getSysId());
+    jerarquia.setType("GAMESA_2");
+    nodo.setJerarquia(jerarquia);
+    insert(jerarquia);
+    update(nodo);    
+end
+
+
+//Es hijo y su padre no esta en el la jerarquia
+
+rule "add to jerarquia  as child"
+ when 
+     nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
+     $padre : Request() from $padres
+     $jerarquia: Jerarquia($padre not memberOf nodos ) 
+then
+    System.out.println("Creando Jerarquia kuskal-machete as a child... ");
+    System.out.println("nodo to add: "+nodo.getDevice().getSysId());
+    Jerarquia jerarquia= new Jerarquia();
+    jerarquia.getNodos().add(nodo);
+    jerarquia.getNodos().add();
+    jerarquia.setId(nodo.getDevice().getSysId());
+    jerarquia.setType("GAMESA_2");
+    nodo.setJerarquia(jerarquia);
+    insert(jerarquia);
+    update(nodo);    
+
+end
