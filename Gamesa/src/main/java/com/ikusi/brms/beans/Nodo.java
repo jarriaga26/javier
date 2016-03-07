@@ -60,4 +60,22 @@ public class Nodo implements java.io.Serializable
       this.sys_id = sys_id;
    }
 
+
+    	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Nodo))
+			return false;
+		Nodo other = (Nodo) obj;
+		if (sys_id == null) {
+			if (other.sys_id != null)
+				return false;
+		} else if (!sys_id.equals(other.sys_id))
+			return false;
+		return true;
+	}
+
 }
