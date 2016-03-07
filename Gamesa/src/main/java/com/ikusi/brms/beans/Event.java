@@ -100,5 +100,7 @@ public class Event implements java.io.Serializable
       this.colector = colector;
       this.uei = uei;
    }
+   
+  
 
 }
