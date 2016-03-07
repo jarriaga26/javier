@@ -116,6 +116,9 @@ public class Device implements java.io.Serializable
       this.subcategory = subcategory;
       this.sysClassName = sysClassName;
       this.serialNumber = serialNumber;
-   }
+   } 
+
+    
+
 
 }
