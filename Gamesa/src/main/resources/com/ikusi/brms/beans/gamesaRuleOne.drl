@@ -239,7 +239,7 @@ then
     jerarquia.setType("GAMESA_2");
     request.setJerarquia(jerarquia);
     insert(jerarquia);
-    update(nodo);    
+    update(request);    
 end
 
 /**
