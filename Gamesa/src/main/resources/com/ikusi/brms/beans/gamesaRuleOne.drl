@@ -268,7 +268,7 @@ then
 end
 
 rule "add to jerarquia  as child exists thisssssss"
-no-loop = true
+no-loop 
  when 
      request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
      $padre : Parent() from $padres
