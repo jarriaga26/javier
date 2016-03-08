@@ -227,7 +227,7 @@ end
 rule "kruskal machete _ add jerarquia as parent"
 when 
     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    $jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) not memberOf nodos  ) 
+    not(exists( Jerarquia(new Nodo(request.getDevice().getSysId())  memberOf nodos  ) ))
 then
     System.out.println("Creando Jerarquia kuskal-machete... ");
     System.out.println("nodo to add: "+request.getDevice().getSysId());
