@@ -212,7 +212,7 @@ end
 rule "kruskal machete"
 when 
     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) not memberOf nodos ) 
+    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId())  memberOf nodos ) 
 then
     System.out.println("No tiene parents y existe en alguna jerarquia");
     request.setJerarquia(jerarquia);
@@ -222,25 +222,27 @@ then
     update(request);
     update(jerarquia);
 end
-/**
+
 //No tiene parents y no existe en alguna jerarquia
 rule "kruskal machete _ add jerarquia as parent"
 when 
-    nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    $jerarquia: Jerarquia(nodo not memberOf nodos ) 
+    request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
+    $jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) not memberOf nodos  ) 
 then
     System.out.println("Creando Jerarquia kuskal-machete... ");
-    System.out.println("nodo to add: "+nodo.getDevice().getSysId());
+    System.out.println("nodo to add: "+request.getDevice().getSysId());
+    
+    Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(nodo);
-    jerarquia.setId(nodo.getDevice().getSysId());
+    jerarquia.setId(request.getDevice().getSysId());
     jerarquia.setType("GAMESA_2");
-    nodo.setJerarquia(jerarquia);
+    request.setJerarquia(jerarquia);
     insert(jerarquia);
     update(nodo);    
 end
 
-
+/**
 //Es hijo y su padre no esta en el la jerarquia
 
 rule "add to jerarquia  as child"
