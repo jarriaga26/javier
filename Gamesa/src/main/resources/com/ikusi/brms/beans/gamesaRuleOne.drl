@@ -212,7 +212,7 @@ end
 rule "kruskal machete"
 when 
     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) memberOf nodos ) 
+    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId()) not memberOf nodos ) 
 then
     System.out.println("No tiene parents y existe en alguna jerarquia");
     request.setJerarquia(jerarquia);
