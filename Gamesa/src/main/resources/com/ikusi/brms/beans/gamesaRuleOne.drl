@@ -262,6 +262,7 @@ then
     jerarquia.setId(request.getDevice().getSysId());
     jerarquia.setType("GAMESA_2");
     request.setJerarquia(jerarquia);
+    System.out.println("Se creo la jerarquia: "+jerarquia.getId()+" con nodos: "+jerarquia.getNodos());
     insert(jerarquia);
     update(request);    
 
