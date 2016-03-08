@@ -270,8 +270,10 @@ end
 rule "add to jerarquia  as child exists thisssssss"
  when 
      request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
-     $padre : Parent() from $padres
-     $jerarquia: Jerarquia(new Nodo($padre.getSysId()) memberOf nodos ) 
+     $padre : Parent($jerarquiaPadre:jerarquia) from $padres
+     $jerarquia: Jerarquia(id==$jerarquiaPadre.id)
+     not (exists(new Nodo(request.getDevice().getSysId()) from $jerarquiaPadre.nodos ))
+     
 then
     System.out.println("add to Jerarquia kuskal-machete as a child exist... ");
     System.out.println("nodo to add: "+request.getDevice().getSysId());
