@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>example</groupId>
   <artifactId>Gamesa</artifactId>
-  <version>2.0.0.1</version>
+  <version>2.0.0.2</version>
   <name>Gamesa</name>
   <build>
     <plugins>
