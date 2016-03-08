@@ -212,9 +212,10 @@ end
 rule "kruskal machete"
 when 
     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents == null)
-    jerarquia: Jerarquia(new Nodo(request.getDevice().getSysId())  memberOf nodos ) 
+    jerarquia: Jerarquia($nodos:nodos,new Nodo(request.getDevice().getSysId())  memberOf nodos ) 
+    $nodo : Nodo(request == null) from $nodos;
 then
-    System.out.println("No tiene parents y existe en alguna jerarquia");
+    System.out.println("No tiene parents y existe en alguna jerarquia as dummy ");
     request.setJerarquia(jerarquia);
     Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     jerarquia.getNodos().remove(nodo);
