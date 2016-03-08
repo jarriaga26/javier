@@ -266,3 +266,25 @@ then
     update(request);    
 
 end
+
+rule "add to jerarquia  as child exists thisssssss"
+ when 
+     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
+     $padre : Parent() from $padres
+     exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos )) 
+then
+    System.out.println("Creando Jerarquia kuskal-machete as a child exist... ");
+    System.out.println("nodo to add: "+request.getDevice().getSysId());
+    Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
+    Nodo nodoParentDummy= new Nodo($padre.getSysId());
+    Jerarquia jerarquia= new Jerarquia();
+    jerarquia.getNodos().add(nodo);
+    jerarquia.getNodos().add(nodoParentDummy);
+    jerarquia.setId(request.getDevice().getSysId());
+    jerarquia.setType("GAMESA_2");
+    request.setJerarquia(jerarquia);
+    insert(jerarquia);
+    update(request);    
+
+end
+
