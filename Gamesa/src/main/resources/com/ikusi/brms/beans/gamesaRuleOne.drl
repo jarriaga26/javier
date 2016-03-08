@@ -267,14 +267,14 @@ then
 
 end
 
-/**
+
 
 rule "add to jerarquia  as child exists thisssssss"
-no-loop 
+
  when 
      request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
      $padre : Parent() from $padres
-     $jerarquia: Jerarquia( $listaNodos:nodos ,new Nodo($padre.getSysId()) memberOf nodos )
+     $jerarquia: Jerarquia( $listaNodos:nodos ,new Nodo($padre.getSysId()) memberOf nodos,new Nodo($request.getDevie().getSysId()) not memberOf nodos )
      
 then
     System.out.println("add to Jerarquia kuskal-machete as a child exist... "+$listaNodos);
@@ -286,4 +286,4 @@ then
     update(request);    
 
 end
-**/
+
