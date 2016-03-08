@@ -253,16 +253,16 @@ rule "add to jerarquia  as child"
     not( exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos ))) 
 then
     System.out.println("Creando Jerarquia kuskal-machete as a child... ");
-    System.out.println("nodo to add: "+nodo.getDevice().getSysId());
+    System.out.println("nodo to add: "+request.getDevice().getSysId());
     Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     Nodo nodoParentDummy= new Nodo($padre.getSysId());
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(nodo);
     jerarquia.getNodos().add(nodoParentDummy);
-    jerarquia.setId(nodo.getDevice().getSysId());
+    jerarquia.setId(request.getDevice().getSysId());
     jerarquia.setType("GAMESA_2");
-    nodo.setJerarquia(jerarquia);
+    request.setJerarquia(jerarquia);
     insert(jerarquia);
-    update(nodo);    
+    update(request);    
 
 end
