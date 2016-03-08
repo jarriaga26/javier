@@ -284,6 +284,36 @@ then
     request.setJerarquia($jerarquia);
     update($jerarquia);
     update(request);    
-
 end
 
+rule "merge jerarquias"
+
+when 
+    child : Request(getStatusBRMS() == "KRUSKAL_MACHETE",getJerarquia() != null, parents.parents != null,$padres:parents.parents,$jerarquia_id: jerarquia.id)
+    parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres,jerarquia.id != $jerarquia_id, $idPadre:device.sysId );
+then
+
+    System.out.println("-------------------------------------------------------");
+    System.out.println("en regla merge hierarchy: ");
+    System.out.println("jerarquia parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
+    System.out.println("jerarquia hijo: "+child.getDevice().getSysId()+" jerarquia: "+child.getJerarquia().getId());
+    System.out.println("----------------------after---------------------------------");
+    
+    child.getJerarquia().getNodos().addAll(parent.getJerarquia().getNodos());
+    parent.setJerarquia(child.getJerarquia());
+    retract(parent.getJerarquia());
+    
+    System.out.println("jerarquia after parent: "+parent.getDevice().getSysId()+" jerarquia: "+parent.getJerarquia().getId());
+    System.out.println("jerarquia hijo: "+child.getDevice().getSysId()+" jerarquia: "+child.getJerarquia().getId());
+    
+    System.out.println("----------------------end---------------------------------");
+    System.out.println("----------------------jerarquias---------------------------------");
+    System.out.println("jerarquia "+parent.getJerarquia().getId()+" nodos: "+parent.getJerarquia().getNodos());
+    System.out.println("jerarquia "+child.getJerarquia().getId()+" nodos: "+child.getJerarquia().getNodos());
+    
+    System.out.println("----------------------end---------------------------------");
+    
+    update(parent);
+    update(child);
+
+end
