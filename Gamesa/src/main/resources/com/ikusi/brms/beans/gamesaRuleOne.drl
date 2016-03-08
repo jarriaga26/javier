@@ -243,20 +243,22 @@ then
     update(request);    
 end
 
-/**
+
 //Es hijo y su padre no esta en el la jerarquia
 
 rule "add to jerarquia  as child"
  when 
-     nodo : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
-     $padre : Request() from $padres
-     $jerarquia: Jerarquia($padre not memberOf nodos ) 
+     request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
+     $padre : Parent() from $padres
+    not( exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos ))) 
 then
     System.out.println("Creando Jerarquia kuskal-machete as a child... ");
     System.out.println("nodo to add: "+nodo.getDevice().getSysId());
+    Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
+    Nodo nodoParentDummy= new Nodo($padre.getSysId());
     Jerarquia jerarquia= new Jerarquia();
     jerarquia.getNodos().add(nodo);
-    jerarquia.getNodos().add();
+    jerarquia.getNodos().add(nodoParentDummy);
     jerarquia.setId(nodo.getDevice().getSysId());
     jerarquia.setType("GAMESA_2");
     nodo.setJerarquia(jerarquia);
@@ -264,4 +266,3 @@ then
     update(nodo);    
 
 end
-**/
