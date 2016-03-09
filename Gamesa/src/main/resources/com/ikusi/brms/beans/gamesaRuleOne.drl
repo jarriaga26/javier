@@ -250,7 +250,7 @@ rule "add to jerarquia  as child"
  when 
      request : Request(getStatusBRMS() == "KRUSKAL_MACHETE", parents.parents != null,$padres:parents.parents)
      $padre : Parent() from $padres
-    not( exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos ))) 
+     not( exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos,new Nodo(request.getDevice().getSysId()) not memberOf nodos ))) 
 then
     System.out.println("Creando Jerarquia kuskal-machete as a child... ");
     System.out.println("nodo to add: "+request.getDevice().getSysId());
