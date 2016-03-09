@@ -339,7 +339,7 @@ then
     
     jerarquia.getNodos().addAll(jerarquia.getNodos());
     retract(child.getJerarquia());
-    child.setJerarquia(child.getJerarquia());
+    child.setJerarquia(jerarquia);
     
     
     System.out.println("jerarquia parent: "+$padre.getSysId()+" jerarquia: "+jerarquia.getId());
