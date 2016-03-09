@@ -61,6 +61,12 @@ public class Nodo implements java.io.Serializable
    }
 
 
+	@Override
+	public boolean toString() {
+	    this.sys_id;
+	    
+	}
+
     	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
