@@ -290,8 +290,9 @@ end
 rule "merge jerarquias"
 
 when 
-    child : Request(getStatusBRMS() == "KRUSKAL_MACHETE",getJerarquia() != null, parents.parents != null,$padres:parents.parents,$jerarquia_id: jerarquia.id)
+    child : Request(getStatusBRMS() == "KRUSKAL_MACHETE",getJerarquia() != null, parents.parents != null,parents.parents.size > 1 ,$padres:parents.parents,$jerarquia_id: jerarquia.id)
     parent : Request(getJerarquia() != null, new Parent(device.sysId ) memberOf  $padres,jerarquia.id != $jerarquia_id, $idPadre:device.sysId );
+    
 then
 
     System.out.println("-------------------------------------------------------");
@@ -318,3 +319,41 @@ then
     update(child);
 
 end
+
+
+rule "merge jerarquias on dummy"
+
+when 
+    child : Request(getStatusBRMS() == "KRUSKAL_MACHETE",getJerarquia() != null, parents.parents != null,parents.parents.size > 1 ,$padres:parents.parents,$jerarquia_id: jerarquia.id)
+    $padre : Parent() from $padres
+    jerarquia: Jerarquia($idJerarquia:id,new Nodo($padre.getSysId())  memberOf nodos, id != child.jerarquia.id ,$nodos:nodos) 
+    $nodo : Nodo(request == null) from $nodos;
+    
+then
+
+    System.out.println("-------------------------------------------------------");
+    System.out.println("en regla merge hierarchy: ");
+    System.out.println("jerarquia parent: "+$padre.getSysId()+" jerarquia: "+jerarquia.getId());
+    System.out.println("jerarquia hijo: "+child.getDevice().getSysId()+" jerarquia: "+child.getJerarquia().getId());
+    System.out.println("----------------------after---------------------------------");
+    
+    jerarquia.getNodos().addAll(jerarquia.getNodos());
+    retract(child.getJerarquia());
+    child.setJerarquia(child.getJerarquia());
+    
+    
+    System.out.println("jerarquia parent: "+$padre.getSysId()+" jerarquia: "+jerarquia.getId());
+    System.out.println("jerarquia hijo: "+child.getDevice().getSysId()+" jerarquia: "+child.getJerarquia().getId());
+    
+    System.out.println("----------------------end---------------------------------");
+    System.out.println("----------------------jerarquias---------------------------------");
+    System.out.println("jerarquia "+jerarquia.getId()+" nodos: "+jerarquia.getNodos());
+    System.out.println("jerarquia "+child.getJerarquia().getId()+" nodos: "+child.getJerarquia().getNodos());
+    
+    System.out.println("----------------------end---------------------------------");
+    
+    update(jerarquia);
+    update(child);
+
+end
+
