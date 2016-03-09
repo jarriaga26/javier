@@ -252,7 +252,7 @@ rule "add to jerarquia  as child"
      $padre : Parent() from $padres
      not( exists(Jerarquia(new Nodo($padre.getSysId()) memberOf nodos,new Nodo(request.getDevice().getSysId()) not memberOf nodos ))) 
 then
-    System.out.println("Creando Jerarquia kuskal-machete as a child... ");
+    System.out.println("Creando Jerarquia kuskal-machete as a child... whit parent... "+ $padre.getSysId());
     System.out.println("nodo to add: "+request.getDevice().getSysId());
     Nodo nodo= new Nodo(request.getDevice().getSysId(),request.getDevice().getSysId(),request);
     Nodo nodoParentDummy= new Nodo($padre.getSysId());
