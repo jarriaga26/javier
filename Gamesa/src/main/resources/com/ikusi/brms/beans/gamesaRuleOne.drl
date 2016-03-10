@@ -320,14 +320,14 @@ then
     update(child);
 
 end
-
+**/
 
 rule "merge jerarquias on dummy"
 
 when 
     child : Request(getStatusBRMS() == "KRUSKAL_MACHETE",getJerarquia() != null, parents.parents != null,parents.parents.size > 1 ,$padres:parents.parents,$jerarquia_id: jerarquia.id)
     $padre : Parent() from $padres
-    jerarquia: Jerarquia($idJerarquia:id,new Nodo($padre.getSysId())  memberOf nodos, id != child.jerarquia.id ,$nodos:nodos) 
+    jerarquia: Jerarquia($idJerarquia:id,new Nodo($padre.getSysId())  memberOf nodos,new Nodo(child.getJerarquia().getId())  memberOf nodos ,id != child.jerarquia.id ,$nodos:nodos) 
     $nodo : Nodo(request == null) from $nodos;
     
 then
@@ -357,4 +357,4 @@ then
     update(child);
 
 end
-**/
+
